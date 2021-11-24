@@ -25,6 +25,6 @@
         "arrow-parens": [0],
         "object-curly-spacing": ["warn", "always"],
         "array-bracket-spacing": ["warn", "always"],
-        "import/prefer-default-export": [0]
+        "const/prefer-default-export": [0]
       }
     }

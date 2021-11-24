@@ -1,11 +1,11 @@
-import express from 'express';
+const express = require( 'express');
 var rEstacion = express.Router();
-import {estacion,estacionid,estacionNom}  from"../controller/Estaciones";
+const CEstacion = require("../controller/Estaciones");
 /* GET users listing. */
 
 
-rEstacion.get("/estacion",estacion);
-rEstacion.get("/estacionid/:idEstacion",estacionid);
-rEstacion.get("/estacionNombre/:nombreEstacion",estacionNom);
+rEstacion.route("/estacion").get( CEstacion.estacion);
+rEstacion.route("/estacionid/:idEstacion").get( CEstacion.estacionid);
+rEstacion.route("/estacionNombre/:nombreEstacion").get( CEstacion.estacionNom);
 
-export default rEstacion;
+module.exports=rEstacion;

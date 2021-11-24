@@ -18,27 +18,9 @@ pool.connect((err, client)=> {
 });
 
 
-export const estacion= async(req, res) => {
+exports.estacion= async(req, res) => {
 
-let data = `SELECT * FROM public.estacion `;
-
-const query = await pgClient.query(data, function select(error, result, fields) {
-
-    if (error) {
-    console.log(error);
-    
-    return query ;
-}
-
- res.send(result.rows)
-
-});
-console.log("fin.");
-};
-
-
-export const estacionid= async(req, res) => {
-let data = `SELECT * FROM public.estacion WHERE "idEstacion"=${req.params.idEstacion}`;
+let data = `SELECT * = require( public.estacion `;
 
 const query = await pgClient.query(data, function select(error, result, fields) {
 
@@ -54,9 +36,27 @@ const query = await pgClient.query(data, function select(error, result, fields) 
 console.log("fin.");
 };
 
-export const estacionNom= async(req, res) => {
+
+exports.estacionid= async(req, res) => {
+let data = `SELECT * = require( public.estacion WHERE "idEstacion"=${req.params.idEstacion}`;
+
+const query = await pgClient.query(data, function select(error, result, fields) {
+
+    if (error) {
+    console.log(error);
+    
+    return query ;
+}
+
+ res.send(result.rows)
+
+});
+console.log("fin.");
+};
+
+exports.estacionNom= async(req, res) => {
 let data = `SELECT "idSensor", "maxSensor", "minSensor","nombreSensor", "nombreEstacion"
-FROM public.sensor INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor"
+= require( public.sensor INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor"
 INNER JOIN public.estacion ON sensor.fk_estacion = "idEstacion"
 WHERE "nombreEstacion"='${req.params.nombreEstacion}'`;
 

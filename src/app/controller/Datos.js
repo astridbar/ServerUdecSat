@@ -16,8 +16,8 @@ pool.connect( (err, client)=> {
         const query = client.query('LISTEN watch_dato_sensor');
 });
 
-export const datosfk= async(req, res) => {
-let data = `SELECT * FROM public.dato_sensor where "fk_sensor"='${req.params.fk_sensor}'`;
+exports.datosfk= async(req, res) => {
+let data = `SELECT * = require( public.dato_sensor where "fk_sensor"='${req.params.fk_sensor}'`;
 
 const query = await pgClient.query(data, function select(error, result, fields) {
 
@@ -34,8 +34,8 @@ console.log("fin.");
 };
 
 
-export const datosfks= async(req, res) => {
-let data = `SELECT * FROM public.dato_sensor where "fk_sensor"
+exports.datosfks= async(req, res) => {
+let data = `SELECT * = require( public.dato_sensor where "fk_sensor"
 ='${req.params.fk_sensor}'`;
 
 const query = await pgClient.query(data, function select(error, result, fields) {
@@ -52,8 +52,8 @@ const query = await pgClient.query(data, function select(error, result, fields) 
 console.log("fin.");
 };
 
-export const datos= async(req, res) => {
-let data = `SELECT*FROM public.dato_sensor`;
+exports.datos= async(req, res) => {
+let data = `SELECT*= require( public.dato_sensor`;
 const query = await pgClient.query(data, function select(error, result, fields) {
     if (error) {
     console.log(error);
@@ -67,8 +67,8 @@ const query = await pgClient.query(data, function select(error, result, fields) 
 console.log("fin.");
 };
 //ultimos 5 datos 
-export const datose= async(req, res) => {
-    let data = `SELECT * FROM public.dato_sensor
+exports.datose= async(req, res) => {
+    let data = `SELECT * = require( public.dato_sensor
     where "fk_sensor"= ${req.params.fk_idSensor}
     ORDER BY "fecha" desc, "hora" desc limit 5`;
     
@@ -86,9 +86,9 @@ export const datose= async(req, res) => {
     console.log("fin.");
     };
 
-    export const datosPersonalzados= async(req, res) => {
+    exports.datosPersonalzados= async(req, res) => {
         let data = `SELECT "idSensor","valor", "fecha", "hora","nombreSensor", "nombreEstacion","maxSensor", "minSensor"
-        FROM public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
+        = require( public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
         INNER JOIN public.estacion ON sensor.fk_estacion = "idEstacion"
         INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor"`;
         
@@ -107,9 +107,9 @@ export const datose= async(req, res) => {
         };
 
 
-        export const datosFecha= async(req, res) => {
+        exports.datosFecha= async(req, res) => {
             let data = `SELECT "idSensor","valor", "fecha", "hora","nombreSensor", "nombreEstacion","maxSensor", "minSensor"
-            FROM public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
+            = require( public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
             INNER JOIN public.estacion ON sensor.fk_estacion = "idEstacion"
             INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor" WHERE "fecha"=${req.params.fecha}`;
             
@@ -127,9 +127,9 @@ export const datose= async(req, res) => {
             console.log("fin.");
             };
 
-            export const datosHora= async(req, res) => {
+            exports.datosHora= async(req, res) => {
                 let data = `SELECT "idSensor","valor", "fecha", "hora","nombreSensor", "nombreEstacion","maxSensor", "minSensor"
-                FROM public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
+                = require( public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
                 INNER JOIN public.estacion ON sensor.fk_estacion = "idEstacion"
                 INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor" WHERE "hora"=${req.params.hora}`;
                 
@@ -147,9 +147,9 @@ export const datose= async(req, res) => {
                 console.log("fin.");
                 };
     
-                export const datosFechaHora= async(req, res) => {
+                exports.datosFechaHora= async(req, res) => {
                     let data = `SELECT "idSensor","valor", "fecha", "hora","nombreSensor", "nombreEstacion","maxSensor", "minSensor"
-                    FROM public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
+                    = require( public.dato_sensor  INNER JOIN public.sensor ON dato_sensor.fk_sensor = "idSensor"
                     INNER JOIN public.estacion ON sensor.fk_estacion = "idEstacion"
                     INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor" WHERE "hora"=${req.params.hora} AND "fecha"=${req.params.fecha}`;
                     

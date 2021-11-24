@@ -17,11 +17,11 @@ console.log("conexion ala base sensor");
 });
 
 
-export const sensores = async(req, res) => {
+exports.sensores = async(req, res) => {
     
 
 let data = `SELECT "idSensor", "maxSensor", "minSensor","nombreSensor", "nombreEstacion"
-FROM public.sensor  INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor"
+= require( public.sensor  INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor"
 INNER JOIN public.estacion ON sensor.fk_estacion = "idEstacion"`;
 
 const query = await pgClient.query(data, function select(error, result, fields) {
@@ -37,9 +37,9 @@ return query ;
 console.log("fin.");
 };
 
-export const sensoresid = async(req, res) => {
+exports.sensoresid = async(req, res) => {
 let data = `SELECT "idSensor", "maxSensor", "minSensor","nombreSensor", "nombreEstacion"
-FROM public.sensor  INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor"
+= require( public.sensor  INNER JOIN public.tiposensores ON sensor.fk_sensores = "id_tipoSensor"
 INNER JOIN public.estacion ON sensor.fk_estacion = "idEstacion"
 WHERE "idSensor"=${req.params.idSensor}`;
 

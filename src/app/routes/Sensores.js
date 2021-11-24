@@ -1,10 +1,10 @@
-import express from 'express';
-var rSensor = express.Router();
-import  {sensores,sensoresid} from "../controller/Sensores";
+const express = require( 'express');
+var rSensor= express.Router();
+const CSensor= require( "../controller/Sensores");
 
 /* GET home page. */
 
-rSensor.get("/sensor",sensores);
-rSensor.get("/sensorid/:idSensor",sensoresid);
+rSensor.route("/sensor").get( CSensor.sensores);
+rSensor.route("/sensorid/:idSensor").get( CSensor.sensoresid);
 
-export default rSensor;
+module.exports=rSensor;
